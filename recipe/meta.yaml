@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c3763e52289f61e21c41d5531e20fbda9cc8484a088b8686fd460770db8bad13
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - gen_client = apitools.gen.gen_client:main
@@ -20,12 +20,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - fasteners >=0.14
     - httplib2 >=0.8
     - oauth2client >=1.4.12
-    - python >=3.6
+    - python >={{ python_min }}
     - six >=1.12.0
 
 test:
@@ -36,6 +36,7 @@ test:
     - gen_client --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/google-apitools/
