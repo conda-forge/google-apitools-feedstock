@@ -1,5 +1,5 @@
 {% set name = "google-apitools" %}
-{% set version = "0.5.32" %}
+{% set version = "0.5.35" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c3763e52289f61e21c41d5531e20fbda9cc8484a088b8686fd460770db8bad13
+  sha256: 911bc3698686c74187414c610ae30bd6e3c0a7404178fc6479ead6c420d2dd94
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - gen_client = apitools.gen.gen_client:main
